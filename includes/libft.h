@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adomingu <adomingu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Vesta_nna <Vesta_nna@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/11/03 21:26:59 by adomingu          #+#    #+#             */
-/*   Updated: 2015/10/14 04:54:49 by adomingu         ###   ########.fr       */
+/*   Updated: 2016/03/21 19:26:04 by Vesta_nna        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,5 +114,6 @@ int						ft_double_tablen(char **tab);
 void					ft_double_tabputendl(char **tab);
 char					**ft_double_tabcpy(char **tab);
 char					*ft_replace(char *s, char *s1, char *s2);
+void					ft_array_putnbr(int **nbr, int y, int x);
 
 #endif

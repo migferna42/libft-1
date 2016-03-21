@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: adomingu <adomingu@student.42.fr>          +#+  +:+       +#+         #
+#    By: Vesta_nna <Vesta_nna@student.42.fr>        +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/11/10 13:08:16 by adomingu          #+#    #+#              #
-#    Updated: 2015/10/14 04:49:02 by adomingu         ###   ########.fr        #
+#    Updated: 2016/03/21 19:26:23 by Vesta_nna        ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -83,6 +83,7 @@ SRCS = ft_atoi.c\
 	ft_double_tabputendl.c\
 	ft_double_tabcpy.c\
 	ft_replace.c\
+	ft_array_putnbr.c
 
 CC = gcc
 LIB = ar rc
