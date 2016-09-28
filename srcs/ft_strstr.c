@@ -1,22 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_strstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adomingu <adomingu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 14:11:43 by adomingu          #+#    #+#             */
-/*   Updated: 2014/11/10 22:35:55 by adomingu         ###   ########.fr       */
+/*   Created: 2014/11/03 21:25:08 by adomingu          #+#    #+#             */
+/*   Updated: 2015/08/25 01:45:11 by adomingu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putendl_fd(char const *s, int fd)
+char	*ft_strstr(const char *s1, const char *s2)
 {
-	if (s != NULL)
+	size_t	i;
+	size_t	len;
+
+	i = 0;
+	len = ft_strlen(s2);
+	if (!s2[i])
+		return ((char *)s1);
+	while (s1 && s1[i])
 	{
-		ft_putstr_fd(s, fd);
-		ft_putchar_fd('\n', fd);
+		if (ft_strncmp(s1 + i, s2, len) == 0)
+			return ((char *)s1 + i);
+		i++;
 	}
+	return (NULL);
 }

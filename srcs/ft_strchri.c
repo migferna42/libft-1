@@ -17,7 +17,7 @@ int		ft_strchri(char *s, char c)
 	size_t		i;
 
 	i = 0;
-	while (s[i] && s[i] != c)
+	while (s && s[i] && s[i] != c)
 		i++;
 	if (s[i] && s[i] == c)
 		return (i);

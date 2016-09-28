@@ -1,28 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memalloc.c                                      :+:      :+:    :+:   */
+/*   ft_strndup.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adomingu <adomingu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adomingu <adomingu@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 17:11:28 by adomingu          #+#    #+#             */
-/*   Updated: 2014/11/18 22:55:58 by adomingu         ###   ########.fr       */
+/*   Created: 2015/01/19 14:27:35 by adomingu          #+#    #+#             */
+/*   Updated: 2015/01/19 14:35:36 by adomingu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memalloc(size_t size)
+char	*ft_strndup(const char *s1, size_t n)
 {
-	void	*mem_fresh;
+	size_t	i;
+	char	*dst;
 
-	mem_fresh = malloc(size);
-	if (mem_fresh == NULL)
+	if (!s1)
 		return (NULL);
-	if (size > 0)
+	i = 0;
+	while (s1 && s1[i] && i <= n)
+		i++;
+	if (!(dst = (char *)malloc(sizeof(char) * (i + 1))))
+		return (NULL);
+	i = 0;
+	while (s1[i] && i <= n)
 	{
-		ft_bzero(mem_fresh, size);
-		return (mem_fresh);
+		dst[i] = s1[i];
+		i++;
 	}
-	return (0);
+	dst[i] = '\0';
+	return (dst);
 }

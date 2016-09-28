@@ -50,7 +50,8 @@ char	*ft_itoa(int n)
 	if (n == -2147483648)
 		return (ft_strdup("-2147483648"));
 	ft_getlen(&len, n);
-	ret = (char *)malloc(sizeof(char) * (len + 1));
+	if (!(ret = (char *)malloc(sizeof(char) * (len + 1))))
+		return (NULL);
 	if (ret != NULL)
 	{
 		ft_putnbr_str(ret, len, n);

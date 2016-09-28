@@ -1,19 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_memrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adomingu <adomingu@student.42.fr>          +#+  +:+       +#+        */
+/*   By: adomingu <adomingu@42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 14:15:52 by adomingu          #+#    #+#             */
-/*   Updated: 2014/11/10 22:35:46 by adomingu         ###   ########.fr       */
+/*   Created: 2015/01/19 14:04:35 by adomingu          #+#    #+#             */
+/*   Updated: 2015/01/19 14:20:05 by adomingu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putstr_fd(char const *s, int fd)
+void	*ft_memrchr(const void *s, int c, size_t n)
 {
-	if (s != NULL)
-		write(fd, s, ft_strlen(s));
+	size_t					i;
+	const unsigned char		*src;
+	unsigned char			ch;
+
+	i = 0;
+	ch = (unsigned char)c;
+	src = (unsigned char *)s;
+	i = ft_strlen((const char *)src);
+	while (i && src[i] != ch)
+		i--;
+	return ((void *)s + i);
 }

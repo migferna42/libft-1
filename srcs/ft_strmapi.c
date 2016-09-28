@@ -20,8 +20,9 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	if (s == NULL || f == NULL)
 		return (NULL);
 	i = 0;
-	mem_fresh = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-	while (s[i])
+	if (!(mem_fresh = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (NULL);
+	while (s && s[i])
 	{
 		mem_fresh[i] = f(i, s[i]);
 		i++;

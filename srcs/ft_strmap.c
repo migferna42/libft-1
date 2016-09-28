@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adomingu <adomingu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/03 21:24:26 by adomingu          #+#    #+#             */
-/*   Updated: 2014/11/10 14:33:19 by adomingu         ###   ########.fr       */
+/*   Created: 2014/11/10 17:13:47 by adomingu          #+#    #+#             */
+/*   Updated: 2014/11/10 17:13:48 by adomingu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
 	size_t	i;
-	size_t	j;
-	size_t	k;
-	size_t	len;
+	char	*mem_fresh;
 
-	k = 0;
-	while (src[k])
-		k++;
-	j = 0;
-	while (dst[j] && j < size)
-		j++;
-	if (j >= size)
-		return (size + k);
-	len = (unsigned int)(j + k);
+	if (s == NULL || f == NULL)
+		return (NULL);
 	i = 0;
-	while (j < (size - 1) && src[i])
-		dst[j++] = src[i++];
-	dst[j] = '\0';
-	return (len);
+	if (!(mem_fresh = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1))))
+		return (NULL);
+	while (s && s[i])
+	{
+		mem_fresh[i] = f(s[i]);
+		i++;
+	}
+	mem_fresh[i] = '\0';
+	return (mem_fresh);
 }

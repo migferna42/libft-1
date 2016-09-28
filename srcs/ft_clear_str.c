@@ -21,7 +21,8 @@ char	*ft_clear_str(char *str)
 	i = 0;
 	j = 0;
 	str = ft_strtrim(str);
-	ret = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1));
+	if (!(ret = (char *)malloc(sizeof(char) * (ft_strlen(str) + 1))))
+		return (NULL);
 	while (str[i] != '\0')
 	{
 		if (str[i] == ' ' || str[i] == '\t' || str[i] == '\n')

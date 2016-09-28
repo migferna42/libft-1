@@ -1,37 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strndup.c                                       :+:      :+:    :+:   */
+/*   ft_double_tablen.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adomingu <adomingu@42.fr>                  +#+  +:+       +#+        */
+/*   By: adomingu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/19 14:27:35 by adomingu          #+#    #+#             */
-/*   Updated: 2015/01/19 14:35:36 by adomingu         ###   ########.fr       */
+/*   Created: 2015/08/25 01:01:45 by adomingu          #+#    #+#             */
+/*   Updated: 2015/08/25 01:01:46 by adomingu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strndup(const char *s1, size_t n)
+int		ft_double_tablen(char **tab)
 {
-	size_t	i;
-	char	*dst;
+	int		i;
 
-	if (!s1)
-		return (NULL);
 	i = 0;
-	while (s1[i] != '\0' && i <= n)
-		i++;
-	dst = (char *)malloc(sizeof(char) * (i + 1));
-	if (dst)
+	if (tab)
 	{
-		i = 0;
-		while (s1[i] && i <= n)
-		{
-			dst[i] = s1[i];
+		while (tab[i])
 			i++;
-		}
-		dst[i] = '\0';
 	}
-	return (dst);
+	return (i);
 }

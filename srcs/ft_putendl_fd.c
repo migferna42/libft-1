@@ -1,24 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_double_tablen.c                                 :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adomingu <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: adomingu <adomingu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/08/25 01:01:45 by adomingu          #+#    #+#             */
-/*   Updated: 2015/08/25 01:01:46 by adomingu         ###   ########.fr       */
+/*   Created: 2014/11/10 14:11:43 by adomingu          #+#    #+#             */
+/*   Updated: 2014/11/10 22:35:55 by adomingu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int		ft_double_tablen(char **tab)
+void	ft_putendl_fd(char const *s, int fd)
 {
-	int		i;
-
-	i = 0;
-	if (tab)
-		while (tab[i])
-			i++;
-	return (i);
+	if (s)
+	{
+		ft_putstr_fd(s, fd);
+		ft_putchar_fd('\n', fd);
+	}
 }

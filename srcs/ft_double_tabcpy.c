@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memrchr.c                                       :+:      :+:    :+:   */
+/*   ft_double_tabcpy.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: adomingu <adomingu@42.fr>                  +#+  +:+       +#+        */
+/*   By: adomingu <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/19 14:04:35 by adomingu          #+#    #+#             */
-/*   Updated: 2015/01/19 14:20:05 by adomingu         ###   ########.fr       */
+/*   Created: 2015/08/25 01:01:27 by adomingu          #+#    #+#             */
+/*   Updated: 2015/10/02 06:07:25 by adomingu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memrchr(const void *s, int c, size_t n)
+char	**ft_double_tabcpy(char **tab)
 {
-	size_t					i;
-	const unsigned char		*src;
-	unsigned char			ch;
+	char	**cp;
+	int		i;
 
 	i = 0;
-	ch = (unsigned char)c;
-	src = (unsigned char *)s;
-	i = ft_strlen(src);
-	while (i >= 0 && src[i] != ch)
-		i--;
-	if (i < 0)
+	if (!(cp = (char **)malloc(sizeof(char *) * (ft_double_tablen(tab) + 1))))
 		return (NULL);
-	return ((void *)s + i);
+	while (tab && tab[i])
+	{
+		cp[i] = ft_strdup(tab[i]);
+		i++;
+	}
+	cp[i] = NULL;
+	return (cp);
 }

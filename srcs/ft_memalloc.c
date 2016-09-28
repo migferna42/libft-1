@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmap.c                                        :+:      :+:    :+:   */
+/*   ft_memalloc.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adomingu <adomingu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/10 17:13:47 by adomingu          #+#    #+#             */
-/*   Updated: 2014/11/10 17:13:48 by adomingu         ###   ########.fr       */
+/*   Created: 2014/11/10 17:11:28 by adomingu          #+#    #+#             */
+/*   Updated: 2014/11/18 22:55:58 by adomingu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmap(char const *s, char (*f)(char))
+void	*ft_memalloc(size_t size)
 {
-	size_t	i;
-	char	*mem_fresh;
+	void	*mem_fresh;
 
-	if (s == NULL || f == NULL)
+	if (!(mem_fresh = malloc(size)))
 		return (NULL);
-	i = 0;
-	mem_fresh = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
-	while (s[i])
+	if (size > 0)
 	{
-		mem_fresh[i] = f(s[i]);
-		i++;
+		ft_bzero(mem_fresh, size);
+		return (mem_fresh);
 	}
-	mem_fresh[i] = '\0';
-	return (mem_fresh);
+	return (0);
 }

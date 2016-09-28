@@ -41,15 +41,13 @@ static char	**ft_alloc_string_tab(int size)
 	char	**ret;
 	int		i;
 
-	ret = (char **)malloc(sizeof(char *) * size + 1);
+	if (!(ret = (char **)malloc(sizeof(char *) * size + 1)))
+		return (NULL);
 	i = 0;
-	if (ret != NULL)
+	while (i <= size)
 	{
-		while (i <= size)
-		{
-			ret[i] = NULL;
-			i++;
-		}
+		ret[i] = NULL;
+		i++;
 	}
 	return (ret);
 }
@@ -80,7 +78,7 @@ char		**ft_strsplit(char const *s, char c)
 
 	ft_count_char((char *)s, c, &size);
 	ret = ft_alloc_string_tab(size);
-	if (s && ret != NULL)
+	if (s && ret)
 	{
 		i = 0;
 		while (s[i] == c && s[i] != '\0')

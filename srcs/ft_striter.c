@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strstr.c                                        :+:      :+:    :+:   */
+/*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: adomingu <adomingu@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/11/03 21:25:08 by adomingu          #+#    #+#             */
-/*   Updated: 2015/08/25 01:45:11 by adomingu         ###   ########.fr       */
+/*   Created: 2014/11/10 17:13:15 by adomingu          #+#    #+#             */
+/*   Updated: 2014/11/10 17:13:18 by adomingu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strstr(const char *s1, const char *s2)
+void	ft_striter(char *s, void (*f) (char *))
 {
 	size_t	i;
-	size_t	len;
 
+	if (!s || !f)
+		return ;
 	i = 0;
-	len = ft_strlen(s2);
-	if (!s2[i])
-		return ((char *)s1);
-	while (s1[i])
+	while (s[i])
 	{
-		if (ft_strncmp(s1 + i, s2, len) == 0)
-			return ((char *)s1 + i);
+		f(s + i);
 		i++;
 	}
-	return (NULL);
 }
